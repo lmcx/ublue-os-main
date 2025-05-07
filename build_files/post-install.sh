@@ -27,7 +27,7 @@ ln -s "/usr/share/fonts/google-noto-sans-cjk-fonts" "/usr/share/fonts/noto-cjk"
 # Remove coprs
 dnf5 -y copr remove ublue-os/staging
 dnf5 -y copr remove ublue-os/packages
-dnf5 -y copr remove kylegospo/oversteer
+# dnf5 -y copr remove kylegospo/oversteer
 
 # Disable Negativo17 Fedora Multimedia
 # This needs to be a whole organiztion change
