@@ -107,6 +107,7 @@ jobs:
           PLATFORM: ${{ matrix.platform }}
         shell: bash
         run: |
+          sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
           just login-to-ghcr "$REGISTRY_USER" "$REGISTRY_TOKEN"
           just push-to-registry \
               "${{ inputs.image_name }}" \
