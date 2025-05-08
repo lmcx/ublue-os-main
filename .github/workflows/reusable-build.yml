@@ -51,6 +51,9 @@ jobs:
     name: main
     runs-on: ${{ matrix.platform == 'amd64' && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
     needs: generate_matrix
+    strategy:
+      fail-fast: false
+      matrix: ${{fromJson(needs.generate_matrix.outputs.matrix)}}
     permissions:
       contents: read
       packages: write
@@ -75,6 +78,8 @@ jobs:
         shell: bash
         run: |
           set -x
+          echo "!!!!!!! PLATFORM = ${{ matrix.platform }}"
+          echo "Platforms = ${{ inputs.platforms }}"
           just build-container \
                "${{ inputs.image_name }}" \
                "${{ inputs.image_version }}" \
