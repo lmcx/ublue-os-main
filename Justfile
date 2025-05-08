@@ -207,6 +207,12 @@ build-container $image_name="" $fedora_version="" $variant="" $platform="" $gith
         BUILD_NVIDIA="Y"
     fi
 
+    if [[ "$platform" == arm64 ]]; then
+        PLATFORM="aarch64"
+    elif [[ "$platform" == amd64 ]]; then
+        PLATFORM="x86_64"
+    fi
+
     # Build Arguments
     BUILD_ARGS=(
         "--build-arg" "IMAGE_NAME=$image_name"
@@ -219,6 +225,7 @@ build-container $image_name="" $fedora_version="" $variant="" $platform="" $gith
         "--build-arg" "AKMODS_DIGEST=$AKMODS_DIGEST"
         "--build-arg" "AKMODS_NVIDIA_DIGEST=$AKMODS_NVIDIA_DIGEST"
         "--build-arg" "BUILD_NVIDIA=$BUILD_NVIDIA"
+        "--build-arg" "PLATFORM=$PLATFORM"
     )
 
     # Pull Images with retry
