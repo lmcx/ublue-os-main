@@ -50,6 +50,7 @@ jobs:
   build_ublue:
     name: main
     runs-on: ${{ matrix.platform == 'amd64' && 'ubuntu-24.04' || 'ubuntu-24.04-arm' }}
+    needs: generate_matrix
     permissions:
       contents: read
       packages: write
