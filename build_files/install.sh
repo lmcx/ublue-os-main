@@ -97,7 +97,7 @@ fi
 /ctx/packages.sh
 
 ## install packages direct from github
-/ctx/github-release-install.sh sigstore/cosign x86_64
+/ctx/github-release-install.sh sigstore/cosign "${PLATFORM}"
 
 # use CoreOS' generator for emergency/rescue boot
 # see detail: https://github.com/ublue-os/main/issues/653

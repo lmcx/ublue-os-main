@@ -77,9 +77,6 @@ jobs:
       - name: Build Image
         shell: bash
         run: |
-          set -x
-          echo "!!!!!!! PLATFORM = ${{ matrix.platform }}"
-          echo "Platforms = ${{ inputs.platforms }}"
           just build-container \
                "${{ inputs.image_name }}" \
                "${{ inputs.image_version }}" \

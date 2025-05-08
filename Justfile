@@ -212,7 +212,6 @@ build-container $image_name="" $fedora_version="" $variant="" $platform="" $gith
     elif [[ "$platform" =~ amd64 ]]; then
         PLATFORM="x86_64"
     fi
-    echo $PLATFORM
 
     # Build Arguments
     BUILD_ARGS=(
